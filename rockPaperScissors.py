@@ -1,3 +1,5 @@
+import random
+
 options = ['rock', 'paper', 'scissors']
 
 #Player making a choice
@@ -7,3 +9,6 @@ player_choice = options[int(player_choice)]
 
 
 #Computer making a choice
+computer_choice = round(random.random()*3)
+
+computer_choice = options[computer_choice])
