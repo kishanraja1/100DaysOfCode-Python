@@ -12,6 +12,7 @@ rand = round(random.random()*len(word_list))-1
 chosen_word = word_list[rand]
 print(chosen_word)
 
+lives = 6
 
 #create a list that has blanks for each letter in chosen word
 display = []
@@ -31,4 +32,13 @@ while '_' in display:
             display[index] = guess
 
 
+    lives -= 1
+    print(guess + ' is not in the word. You have ' + str(lives) + ' lives left.')
+
+    if lives == 0:
+        print('Game over.')
+        break
+
     print(display)
+
+print('You win! You got all the letters in ' + chosen_word)
