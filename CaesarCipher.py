@@ -4,29 +4,45 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
-#encrytion login
-def encrypt(textInput, shiftInput):
+# #encrytion login
+# def encrypt(textInput, shiftInput):
+#     wordAsList = list(textInput)
+#     newWord = ''
+#     for letter in wordAsList:
+#         indexNum = alphabet.index(letter)
+#         indexNum += int(shift)
+#         newWord = newWord + alphabet[indexNum]
+#     print(newWord)
+
+# #decryption logic
+# def decrypt(textInput, shiftInput):
+#     wordAsList = list(textInput)
+#     newWord = ''
+#     for letter in wordAsList:
+#         indexNum = alphabet.index(letter)
+#         indexNum -= int(shift)
+#         newWord = newWord + alphabet[indexNum]
+#     print(newWord)
+  
+ 
+# # checking if user wants to encrypt or decrypt
+# if direction == 'encode':
+#     encrypt(text, shift)
+# elif direction == 'decode':
+#     decrypt(text, shift)
+
+
+#DRYing code above, because encode and decode are identical functions with minor differences
+def caesar(textInput, shiftInput, directionInput):
     wordAsList = list(textInput)
     newWord = ''
     for letter in wordAsList:
         indexNum = alphabet.index(letter)
-        indexNum += int(shift)
+        if directionInput == 'encode':
+            indexNum += int(shiftInput)
+        elif directionInput == 'decode':
+            indexNum -= int(shift)
         newWord = newWord + alphabet[indexNum]
     print(newWord)
 
-#decryption logic
-def decrypt(textInput, shiftInput):
-    wordAsList = list(textInput)
-    newWord = ''
-    for letter in wordAsList:
-        indexNum = alphabet.index(letter)
-        indexNum -= int(shift)
-        newWord = newWord + alphabet[indexNum]
-    print(newWord)
-  
- 
-# checking if user wants to encrypt or decrypt
-if direction == 'encode':
-    encrypt(text, shift)
-elif direction == 'decode':
-    decrypt(text, shift)
+caesar(text, shift, direction)
