@@ -4,8 +4,8 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
-
-def encryptFunc(textInput, shiftInput):
+#encrytion login
+def encrypt(textInput, shiftInput):
     wordAsList = list(textInput)
     newWord = ''
     for letter in wordAsList:
@@ -14,5 +14,19 @@ def encryptFunc(textInput, shiftInput):
         newWord = newWord + alphabet[indexNum]
     print(newWord)
 
-
-encryptFunc(text, shift)
+#decryption logic
+def decrypt(textInput, shiftInput):
+    wordAsList = list(textInput)
+    newWord = ''
+    for letter in wordAsList:
+        indexNum = alphabet.index(letter)
+        indexNum -= int(shift)
+        newWord = newWord + alphabet[indexNum]
+    print(newWord)
+  
+ 
+# checking if user wants to encrypt or decrypt
+if direction == 'encode':
+    encrypt(text, shift)
+elif direction == 'decode':
+    decrypt(text, shift)
