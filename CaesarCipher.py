@@ -41,7 +41,7 @@ def caesar(textInput, shiftInput, directionInput):
         if directionInput == 'encode':
             indexNum += int(shiftInput)
         elif directionInput == 'decode':
-            indexNum -= int(shift)
+            indexNum -= int(shiftInput)
         newWord = newWord + alphabet[indexNum]
     print(newWord)
 
