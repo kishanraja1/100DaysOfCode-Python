@@ -25,3 +25,22 @@
 from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
 from money_machine import MoneyMachine
+
+#Create objects from our classes
+money_machine = MoneyMachine()
+coffee_maker = CoffeeMaker()
+
+
+
+user_input = input('What would you like to order? ')
+
+def coffee_machine(user_input):
+    if(user_input == 'off'):
+        print('turning off')
+        return
+    elif(user_input == 'report'):
+        money_machine.report()
+        coffee_maker.report()
+
+
+coffee_machine(user_input)
